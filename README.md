@@ -5,6 +5,53 @@
 1. 10 月 5 日（木）はじめの一歩
 2. 10 月 5 日（木）Github リポジトリ作成
 3. 10 月 12 日(木) 変数・定数宣言
+4. 10 月 19 日(木) for 文
+
+## 10 月 19 日
+
+- 複数の要素を追加する → コレクション配列
+- 配列の宣言と長さ
+- for 文による繰り返し処理
+
+## js を使って要素にテキストを追加する
+
+1. ul 要素を持ってくる
+1. li 要素を追加する
+1. for 文で回して、一つ一つ li に入れる
+
+```html
+<body>
+  <h1>人気フルーツ一覧</h1>
+  <ul id="fruitslist" class="listbox__list"></ul>
+  <script>
+    //ulの中に果物を一度にliで入れたい。
+    //配列fruitsを宣言・値を代入
+    const fruits = ['りんご', 'もも', 'バナナ'];
+
+    //バナナがほしい
+    console.log(fruits[2]);
+
+    //ulをJavaScript空間に引きずり込む
+    const element = document.querySelector('#fruitslist');
+    console.log(fruitslist);
+
+    //fruitsの要素分だけfor文で回す
+    for (let i = 0; i < fruits.length; i++) {
+      //liを創出する
+      const lilast = document.createElement('li');
+
+      //liに値（果物ー配列fruitsの中にある）を代入
+      console.log(fruits[i]); //りんご・もも・バナナが取れる。
+
+      //創出したliの内容に果物を代入
+      lilast.textContent = fruits[i];
+
+      //element(#ul)の中の最後に追加
+      element.appendChild(lilast);
+    }
+  </script>
+</body>
+```
 
 ## 10 月 12 日
 
