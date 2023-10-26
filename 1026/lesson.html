@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>演習</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+      .text {
+        color: red;
+      }
+      .text.blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="text"><span>色の名前</span>色です。</p>
+
+    <button class="red">赤色</button>
+    <button class="blue">青色</button>
+    <button class="yellow">黄色</button>
+
+    <script>
+      //文字の色を変えてみましょう
+      //ボタンを取得する
+      const redBtn = document.querySelector('.red');
+
+      //文字を取得する
+      const text = document.querySelector('.text');
+
+      //テキストを変えたい
+      const textSpan = document.querySelector('.text span');
+
+      //ボタンにClickイベントをつける
+      //赤
+      redBtn.addEventListener('click', function () {
+        console.dir(text);
+        text.style.color = 'red';
+        textSpan.innerText = '赤';
+      });
+
+      //青
+      const blueBtn = document.querySelector('.blue');
+      blueBtn.addEventListener('click', function () {
+        text.style.color = 'blue';
+        textSpan.innerText = '青';
+      });
+
+      //黄
+      const yellowBtn = document.querySelector('.yellow');
+      yellowBtn.addEventListener('click', function () {
+        text.style.color = 'yellow';
+        textSpan.innerText = '黄';
+      });
+    </script>
+
+    <script>
+      //scrollされるたびにconsoleに「スクロールされました」と表示されるプログラムを書いてください
+      //windowの仕事です。
+      window.addEventListener('scroll', function () {
+        console('スクロールされました。');
+      });
+    </script>
+  </body>
+</html>
