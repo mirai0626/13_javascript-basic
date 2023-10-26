@@ -6,7 +6,68 @@
 2. 10 月 5 日（木）Github リポジトリ作成
 3. 10 月 12 日(木) 変数・定数宣言
 4. 10 月 19 日(木) for 文
-5. 10 月 26 日(木)
+5. 10 月 26 日(木) click イベント
+
+## 10 月 26 日
+
+- クリックしたら色が変わる
+- クリックしたら文字の大きさが変わる
+- style 属性をつけて文字のスタイルを変える
+
+```js
+    <script>
+      //文字の色を変えてみましょう
+      //ボタンを取得する
+      const redBtn = document.querySelector('.red');
+
+      //文字を取得する
+      const text = document.querySelector('.text');
+
+      //テキストを変えたい
+      const textSpan = document.querySelector('.text span');
+
+      //ボタンにClickイベントをつける
+      //赤
+      redBtn.addEventListener('click', function () {
+        console.dir(text);
+        text.style.color = 'red';
+        textSpan.innerText = '赤';
+      });
+
+      //青
+      const blueBtn = document.querySelector('.blue');
+      blueBtn.addEventListener('click', function () {
+        text.style.color = 'blue';
+        textSpan.innerText = '青';
+      });
+
+      //黄
+      const yellowBtn = document.querySelector('.yellow');
+      yellowBtn.addEventListener('click', function () {
+        text.style.color = 'yellow';
+        textSpan.innerText = '黄';
+      });
+    </script>
+```
+
+```js
+    <script>
+      //element.setAttribute("class","??")
+      const text = document.querySelector('p span');
+
+      //赤くなる
+      const btnRed = document.querySelector('.redder');
+      btnRed.addEventListener('click', function () {
+        text.setAttribute('class', 'redText');
+      });
+
+      //大きくなる
+      const btnBig = document.querySelector('.bigger');
+      btnBig.addEventListener('click', function () {
+        text.setAttribute('class', 'bigText');
+      });
+    </script>
+```
 
 ## 10 月 19 日
 
