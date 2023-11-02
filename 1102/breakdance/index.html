@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1 id="header">ヘッドスピン</h1>
+
+    <div class="btnArea">
+      <div class="button dancing">Let’sダンス</div>
+      <div class="button stop">ストップ</div>
+      <div class="button change">ダンサーチェンジ</div>
+    </div>
+    <div class="imgArea">
+      <img
+        src="images/dance_breakdance_headspin.png"
+        alt="ブレイクダンサーいらすと"
+      />
+    </div>
+    <script>
+      //要素を取得する
+      const dancingBtn = document.querySelector('.dancing');
+      const stopBtn = document.querySelector('.stop');
+      const changeBtn = document.querySelector('.change');
+
+      //画像を取得する
+      const dancer = document.querySelector('img');
+      console.log(dancer);
+
+      //ダンスのクリックイベントをつける
+      dancingBtn.addEventListener('click', function () {
+        //クラスをつけて画像が回転するようにする
+        dancer.setAttribute('class', 'dance');
+      });
+
+      //ストップのクリックイベントをつける
+      stopBtn.addEventListener('click', function () {
+        //クラスをつけて画像がストップするようにする
+        dancer.setAttribute('class', 'stop');
+        //クラスを消して画像がストップするようにする
+        //dancer.removeAttribute("class");
+      });
+
+      //画像が変わるクリックイベントをつける
+      changeBtn.addEventListener('click', function () {
+        //画像をsrcで設定して変わるように設定する
+        dancer.setAttribute('src', 'images/ballet_woman.png');
+        //画像のクラスを消して画像がもとに戻るようにする
+        dancer.removeAttribute('class', 'change');
+      });
+    </script>
+  </body>
+</html>
