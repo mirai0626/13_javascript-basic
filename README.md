@@ -7,6 +7,46 @@
 3. 10 月 12 日(木) 変数・定数宣言
 4. 10 月 19 日(木) for 文
 5. 10 月 26 日(木) click イベント
+6. classList とイベント、for 文
+
+## 11 月 2 日
+
+- add,remove,toggle
+
+```js
+<script>
+      //要素を取得する
+      const dancingBtn = document.querySelector('.dancing');
+      const stopBtn = document.querySelector('.stop');
+      const changeBtn = document.querySelector('.change');
+
+      //画像を取得する
+      const dancer = document.querySelector('img');
+      console.log(dancer);
+
+      //ダンスのクリックイベントをつける
+      dancingBtn.addEventListener('click', function () {
+        //クラスをつけて画像が回転するようにする
+        dancer.setAttribute('class', 'dance');
+      });
+
+      //ストップのクリックイベントをつける
+      stopBtn.addEventListener('click', function () {
+        //クラスをつけて画像がストップするようにする
+        dancer.setAttribute('class', 'stop');
+        //クラスを消して画像がストップするようにする
+        //dancer.removeAttribute("class");
+      });
+
+      //画像が変わるクリックイベントをつける
+      changeBtn.addEventListener('click', function () {
+        //画像をsrcで設定して変わるように設定する
+        dancer.setAttribute('src', 'images/ballet_woman.png');
+        //画像のクラスを消して画像がもとに戻るようにする
+        dancer.removeAttribute('class', 'change');
+      });
+    </script>
+```
 
 ## 10 月 26 日
 
