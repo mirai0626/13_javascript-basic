@@ -8,6 +8,87 @@
 4. 10 月 19 日(木) for 文
 5. 10 月 26 日(木) click イベント
 6. classList とイベント、for 文
+7. for 文と if 文
+
+## 11 月 9 日
+
+1. click イベントでクラスをつける
+2. if 文で条件分岐する
+3. if 文で条件分岐して、ul の中に li 要素を追加して、中にテキストを書く
+
+- if 文条件分岐
+- ul 要素に li 要素を追加
+- 追加した li 要素の中にテキストを追加する
+
+```js
+    <script>
+      const widthsize = window.innerWidth; //現在のブラウザの横幅
+      console.log(widthsize);
+
+      const leftZone = document.querySelector('.leftZone');
+      const rightZone = document.querySelector('.rightZone');
+
+      document.body.addEventListener('click', function (event) {
+        //クリックしたX軸の数値が取れる
+        console.log(event.clientX);
+
+        //横幅がwidthsizeに入っているので、
+        //右半分左半分を分けるには？
+        if (event.clientX <= widthsize / 2) {
+          console.log('左半分');
+          //li要素を追加する
+          const list = document.createElement('li');
+          //li要素の中にテキストを追加する
+          list.textContent = '左';
+          //appendChildでul要素の中にli要素を追加する
+          leftZone.appendChild(list);
+          console.log(list);
+        } else {
+          console.log('右半分');
+          const list = document.createElement('li');
+          list.textContent = '右';
+          rightZone.appendChild(list);
+        }
+      });
+    </script>
+```
+
+- if 文で条件分岐する
+
+```js
+    <script>
+      const num = Math.round(Math.random() * 100);
+      console.log('現在の値：' + num);
+      const rem = num % 2; //2で割ってどうなると偶数が表示されるか
+
+      console.log(rem);
+
+      //偶数を表示するif文をかいてください。
+
+      if (rem == 0) {
+        console.log('偶数です');
+      } else {
+        console.log('奇数です');
+      }
+    </script>
+```
+
+- for 文を使って click イベント
+
+```js
+    <script>
+      const text = document.querySelectorAll('p');
+      console.log(text);
+
+      for (let i = 0; i < text.length; i++) {
+        //NodeListだから添字が必要
+        console.log(i);
+        text[i].addEventListener('click', function () {
+          this.classList.add('slide');
+        });
+      }
+    </script>
+```
 
 ## 11 月 2 日
 
