@@ -9,6 +9,37 @@
 5. 10 月 26 日(木) click イベント
 6. classList とイベント、for 文
 7. for 文と if 文
+8. 復習
+
+## 11 月 16 日
+
+````js
+    //論理和　★または★
+      const n1 = 1;
+      const n2 = 2;
+
+      if (n1 == 1 || n2 == 2) {
+        console.log(true); //boolean型なので"""はなくてもいい
+      } else {
+        console.log(false);
+      }
+
+      //論理積　★かつ★　 trueとfalse
+
+      //n2が1のとき
+      if (n1 == 1 && n2 == 1) {
+        console.log(true); //boolean型なので"""はなくてもいい
+      } else {
+        console.log(false);
+      }
+
+      //n2が2のとき 　　　trueとtrue
+      if (n1 == 1 && n2 == 2) {
+        console.log(true); //boolean型なので"""はなくてもいい
+      } else {
+        console.log(false);
+      }
+      ```
 
 ## 11 月 9 日
 
@@ -51,7 +82,7 @@
         }
       });
     </script>
-```
+````
 
 - if 文で条件分岐する
 

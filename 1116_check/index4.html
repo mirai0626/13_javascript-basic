@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      <span>トライデントコンピュータ専門学校</span
+      >は<span>愛知県名古屋市</span>にあり、1984年に<span>開校</span>。IT技術者<span>多数育成</span>。現在、情報処理系<span>3学科</span>と<span>CG／ゲーム開発／Webデザイン／CAD</span>などの学科もあり、卒業生の<span>就職実績</span>も豊富です。
+    </p>
+    <script>
+      const span = document.querySelectorAll('span');
+      for (let i = 0; i <= span.length; i++) {
+        console.log(span[i]);
+        span[i].style.color = 'red';
+        span[i].style.fontWeight = 'bold';
+      }
+    </script>
+  </body>
+</html>
