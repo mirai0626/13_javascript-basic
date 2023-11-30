@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson3</title>
+  </head>
+  <body>
+    <ul>
+      <li>犬</li>
+      <li>猫</li>
+    </ul>
+    <p class="result"></p>
+
+    <script>
+      const dog = document.querySelector('li');
+      const cat = document.querySelectorAll('li');
+      const result = document.querySelector('.result');
+      console.log(result);
+      console.log(dog, cat[1]);
+
+      //関数式
+      console.log('あなたは○派です。');
+      const animalCheck = function (animal) {
+        result.textContent = 'あなたは' + animal + '派です。';
+      };
+
+      dog.addEventListener('click', function () {
+        console.dir(this);
+        animalCheck(this.textContent);
+      });
+
+      cat[1].addEventListener('click', function () {
+        console.dir(this);
+        animalCheck(this.textContent);
+      });
+    </script>
+  </body>
+</html>

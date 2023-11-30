@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson4</title>
+  </head>
+  <body>
+    <script>
+      //関数の定義(関数式)
+      const yoshinoya = function (gyuudon, mori, amount, price) {
+        console.log(gyuudon + 'の' + mori + '、' + amount + 'で' + price);
+        //テンプレートリテラル
+        console.log(`${gyuudon}の${mori}、${amount}で${price}`);
+      };
+
+      //関数の実行
+      //複数の引数を読み込む場合は、,で区切る。
+      yoshinoya('牛丼', '並盛', 'つゆだく', 388); //牛丼の並盛、つゆだくで 388 円
+      yoshinoya('豚丼', '大盛', 'たまご', 592); //豚丼の大盛、たまごで 592 円
+    </script>
+  </body>
+</html>

@@ -10,6 +10,29 @@
 6. classList とイベント、for 文
 7. for 文と if 文
 8. 復習
+9. 関数
+
+## 11 月 30 日
+
+1. function の()の中に関数を定義(適当に自分で名前をつける)
+2. それをつなげるだけ
+3. 一番下には中に表示させたい文を書いて出力しておく
+
+```js
+    <script>
+      //関数の定義(関数式)
+      const yoshinoya = function (gyuudon, mori, amount, price) {
+        console.log(gyuudon + 'の' + mori + '、' + amount + 'で' + price);
+        //テンプレートリテラル
+        console.log(`${gyuudon}の${mori}、${amount}で${price}`);
+      };
+
+      //関数の実行
+      //複数の引数を読み込む場合は、,で区切る。
+      yoshinoya('牛丼', '並盛', 'つゆだく', 388); //牛丼の並盛、つゆだくで 388 円
+      yoshinoya('豚丼', '大盛', 'たまご', 592); //豚丼の大盛、たまごで 592 円
+    </script>
+```
 
 ## 11 月 16 日
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson6</title>
+  </head>
+  <body>
+    <div class="fnArea"></div>
+    <script>
+      const member_list = [
+        'チェウォン',
+        'サクラ',
+        'ユンジン',
+        'カズハ',
+        'ウンチェ',
+      ];
+      const mugiwara_list = [
+        'モンキー・D・ルフィ',
+        'ナミ',
+        'ロロノア・ゾロ',
+        'ヴィンスモーク・サンジ',
+        'ウソップ',
+        'トニートニー・チョッパー',
+        'ニコ・ロビン',
+        'フランキー',
+        'ブルック',
+        'ジンベエ',
+      ];
+
+      //.fnAreaに上記の配列の要素を<li></li>で追加する関数
+      const memberArea = document.querySelector('.fnArea');
+
+      const memberPush = function (members) {
+        //memberAreaにul,liで各メンバーを入れる。
+        const ul = document.createElement('ul');
+
+        for (let i = 0; i < members.length; i++) {
+          console.log(members[i]);
+          const li = document.createElement('li');
+          li.textContent = members[i];
+          memberArea.appendChild(ul);
+          ul.appendChild(li);
+        }
+      };
+
+      //関数の実行
+      memberPush(member_list); //ルセラフィムのメンバー
+      memberPush(mugiwara_list); //麦わらの一味
+    </script>
+  </body>
+</html>
