@@ -6,6 +6,9 @@
     <title>lesson6</title>
   </head>
   <body>
+    <button class="lesserafim">ルセラフィムメンバー</button>
+    <button class="mugiwara">麦わらの一味</button>
+
     <div class="fnArea"></div>
     <script>
       const member_list = [
@@ -42,11 +45,69 @@
           memberArea.appendChild(ul);
           ul.appendChild(li);
         }
+
+        memberArea.innerHTML = '';
+        memberArea.appendChild(ul);
+      };
+
+      // クリックイベント
+
+      const lesserafim = document.querySelector('.lesserafim');
+      lesserafim.addEventListener('click', function () {
+        const memberPush = function (members) {
+          //memberAreaにul,liで各メンバーを入れる。
+          const ul = document.createElement('ul');
+
+          for (let i = 0; i < members.length; i++) {
+            console.log(members[i]);
+            const li = document.createElement('li');
+            li.textContent = members[i];
+            memberArea.appendChild(ul);
+            ul.appendChild(li);
+          }
+        };
+        memberPush(member_list);
+      });
+
+      const mugiwara = document.querySelector('.mugiwara');
+      mugiwara.addEventListener('click', function () {
+        const memberPush = function (members) {
+          //memberAreaにul,liで各メンバーを入れる。
+          const ul = document.createElement('ul');
+
+          for (let i = 0; i < members.length; i++) {
+            console.log(members[i]);
+            const li = document.createElement('li');
+            li.textContent = members[i];
+            memberArea.appendChild(ul);
+            ul.appendChild(li);
+          }
+        };
+        memberPush(mugiwara_list);
+      });
+
+      //関数の実行
+      // memberPush(member_list); //ルセラフィムのメンバー
+      // memberPush(mugiwara_list); //麦わらの一味
+
+      //引数1と引数2を足す関数の定義
+      const addition = function (a, b) {
+        const c = a + b;
+        console.log(c);
       };
 
       //関数の実行
-      memberPush(member_list); //ルセラフィムのメンバー
-      memberPush(mugiwara_list); //麦わらの一味
+      addition(30, '6'); //コンソールに306と表示される
+
+      //戻り値のある関数の定義
+      const addition2 = function (a, b) {
+        const c = a * b;
+        return c; //戻り値
+      };
+
+      //関数の実行
+      const result = addition2(5, 5);
+      console.log(result);
     </script>
   </body>
 </html>

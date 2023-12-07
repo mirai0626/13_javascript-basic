@@ -11,6 +11,158 @@
 7. for 文と if 文
 8. 復習
 9. 関数
+10. 12 月 7 日（木）関数式
+
+##　 12 月 7 日
+
+1. 関数に名前をつける
+2. 処理したい内容を関数に入れる
+3. 九九みたいに数値を入れたい場合は、function に関数を入れる
+4. 数値を入れない場合は無名関数
+
+```js
+    <script>
+      //ふわっと表示させる
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.className = 'view';
+      });
+      //画像ファイル名は、配列から取得します。
+      const fujiImg_list = [
+        'mt-fuji001.jpg',
+        'mt-fuji002.jpg',
+        'mt-fuji003.jpg',
+      ];
+
+      //ここに処理を書きます。
+      const imageArea = document.querySelector('#mt-fuji');
+      const btns = document.querySelectorAll('.image-fuji');
+      const preBtn = document.querySelector('.pre');
+      const nextBtn = document.querySelector('.next');
+
+      let count = 0; //初期化
+
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          imageArea.setAttribute('src', `images/${fujiImg_list[i]}`);
+          count = i; //iの数値をcountに代入
+          console.log(i);
+        });
+      }
+
+      //関数式
+      const nextStep = function () {
+        if (count == 2) {
+          count = 0;
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+          //0だから最初の画像に戻る
+        } else {
+          count++; //インクリメントは、+1
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+        }
+        console.log(count);
+      };
+
+      const prevStep = function () {
+        if (count == 0) {
+          count = 2;
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+          //0だから最初の画像に戻る
+        } else {
+          count--; //インクリメントは、+1
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+        }
+      };
+
+      //次の画像を表示
+      nextBtn.addEventListener('click', function () {
+        nextStep();
+      });
+
+      //前の画像を表示
+      preBtn.addEventListener('click', function () {
+        prevStep();
+      });
+      console.log(count);
+    </script>
+
+```
+
+- return（戻り値で呼ぶ）
+- 値を入れる場合の function()の名前の設定
+
+```js
+    <script>
+      const cake = 450;
+      const takeOut = document.querySelector('.takeOut');
+      const eatIn = document.querySelector('.eatIn');
+      const span = document.querySelector('span');
+
+      //関数の定義
+      const caluculation = function (cake, tax) {
+        const result = cake + cake * tax; //商品+消費税
+        return result; //戻り値
+      };
+
+      //クリックイベント
+      takeOut.addEventListener('click', function () {
+        //関数の実行
+        const price = caluculation(cake, 0.08);
+        result.innerHTML = price;
+      });
+
+      eatIn.addEventListener('click', function () {
+        //関数の実行
+        const price = caluculation(cake, 0.1);
+        result.innerHTML = price;
+      });
+    </script>
+
+```
+
+- グローバル変数
+- ローカル変数
+
+```js
+<script>
+      // グローバル変数の初期化※再代入可能にするためletを使う。
+      let global = 'グローバル変数';
+
+      //関数funcの定義
+      const func = function () {
+        //ローカル変数の初期化
+        let local = 'ローカル変数';
+        //グローバル変数の表示
+        console.log(global);
+        //ローカル変数の表示
+        console.log(local);
+        global = 'グローバル変数を再代入';
+
+        console.log(global);
+
+        var global = 'グローバル変数を再定義';
+        console.log(global);
+      };
+
+      if (global) {
+        var local2 = 'varは関数スコープ';
+        let local3 = 'letはブロックスコープ';
+      }
+
+      //関数funcの実行
+      func();
+      //グローバルはvar global = "グローバル変数を再定義";で再定義されているので、undefinedになる。
+
+      //グローバル変数の表示
+      console.log(global);
+      //ローカル変数の表示は、関数funcの中で定義されているので、呼び出せない。
+
+      //console.log(local);
+      //varは関数スコープなので、if文の外で呼び出せる。
+      console.log(local2);
+      //letはブロックスコープなので、if文の外で呼び出せない。
+      console.log(local3);
+    </script>
+```
 
 ## 11 月 30 日
 
