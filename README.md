@@ -12,8 +12,261 @@
 8. 復習
 9. 関数
 10. 12 月 7 日（木）関数式
+11. 12 月 14 日（木）関数・引数
 
-##　 12 月 7 日
+## 12 月 14 日
+
+1. 引数
+
+- 関数に入れて、それを引数にして使う
+
+```js
+ <script>
+      const startBtn = document.querySelector('.startBtn');
+      const animalSpeed = [3, 4, 1, 3, 2];
+      const animals = document.querySelectorAll('li span');
+      console.log(animals);
+
+      // ここに関数animalsRunを作成してください。
+
+      const animalsRun = function (list) {　//19行目のanimalsの名前を変えてlistで使ってる
+        console.log(list);
+        for (let i = 0; i < list.length; i++) {
+          console.log(animalSpeed[i], list[i]);
+
+          list[i].classList.add('run');
+          list[i].style.transitionDuration = animalSpeed[i] + 's';
+        }
+      };
+
+      //犬を動かす
+      startBtn.addEventListener('click', function () {
+        animalsRun(animals);//７行目のlistに行く　//関数の実行
+      });
+    </script>
+
+```
+
+2. 何秒後に切り替わる
+
+```js
+ <script>
+      //ふわっと表示させる
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.className = 'view';
+      });
+      //画像ファイル名は、配列から取得します。
+      const fujiImg_list = [
+        'mt-fuji001.jpg',
+        'mt-fuji002.jpg',
+        'mt-fuji003.jpg',
+      ];
+
+      //ここに処理を書きます。
+      const imageArea = document.querySelector('#mt-fuji');
+      const btns = document.querySelectorAll('.image-fuji');
+      const preBtn = document.querySelector('.pre');
+      const nextBtn = document.querySelector('.next');
+
+      let count = 0; //初期化
+
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          imageArea.setAttribute('src', `images/${fujiImg_list[i]}`);
+          count = i; //iの数値をcountに代入
+          console.log(i);
+        });
+      }
+
+      //関数式
+      const nextStep = function () {
+        if (count == 2) {
+          count = 0;
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+          //0だから最初の画像に戻る
+        } else {
+          count++; //インクリメントは、+1
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+        }
+        console.log(count);
+      };
+
+      const prevStep = function () {
+        if (count == 0) {
+          count = 2;
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+          //0だから最初の画像に戻る
+        } else {
+          count--; //インクリメントは、+1
+          imageArea.setAttribute('src', 'images/' + fujiImg_list[count]);
+        }
+      };
+
+      //次の画像を表示
+      nextBtn.addEventListener('click', function () {
+        nextStep();
+      });
+
+      //前の画像を表示
+      preBtn.addEventListener('click', function () {
+        prevStep();
+      });
+      console.log(count);
+
+      //何秒後にスライド画像が変わる
+      const slideShow = function (func) {
+        setInterval(func, 2000);
+      };
+      slideShow(nextStep);
+  </script>
+```
+
+3. コールバック関数
+
+`````js
+
+    <script>
+      //関数式①
+      const concatenateSpace = function (lastName, firstName) {
+        return lastName + ' ' + firstName;
+      };
+
+      //関数式②
+      const useConcatenate = function (name, func) {
+        //↑仮引数
+        //nameには、配列が入っている
+        //functionには、関数式①が入っている
+        let concatName = func(name[0], name[1]);
+        //cincatNameには、関数式①の戻り値が入っている
+        console.log('結合結果：' + concatName);
+      };
+
+      let nameParam = ['島田', '未来'];
+
+      //関数式②の実行(引数① = 配列, 引数② = 関数名)
+      useConcatenate(nameParam, concatenateSpace);
+
+      //結合結果：中田 雄二
+
+      //-----コールバック関数基本　*よく使う------
+      //関数式①
+      const testFunc = function (func) {
+        //funcｍには、関数式②
+        //関数の実行後すぐに表示
+        console.log('testFuncが実行されました');
+
+        //2秒後、実行
+        setTimeout(function () {
+          func();
+        }, 2000);
+      };
+
+      //関数式②
+      const callback = function () {
+        console.log('callbackが実行されました');
+      };
+
+      //何を何してますか？
+      //関数式①を実行
+      //callbackは、関数式②の関数名
+      testFunc(callback);
+    </script>    <script>
+      //関数式①
+      const concatenateSpace = function (lastName, firstName) {
+        return lastName + ' ' + firstName;
+      };
+
+      //関数式②
+      const useConcatenate = function (name, func) {
+        //↑仮引数
+        //nameには、配列が入っている
+        //functionには、関数式①が入っている
+        let concatName = func(name[0], name[1]);
+        //cincatNameには、関数式①の戻り値が入っている
+        console.log('結合結果：' + concatName);
+      };
+
+      let nameParam = ['島田', '未来'];
+
+      //関数式②の実行(引数① = 配列, 引数② = 関数名)
+      useConcatenate(nameParam, concatenateSpace);
+
+      //結合結果：中田 雄二
+
+      //-----コールバック関数基本　*よく使う------
+      //関数式①
+      const testFunc = function (func) {
+        //funcｍには、関数式②
+        //関数の実行後すぐに表示
+        console.log('testFuncが実行されました');
+
+        //2秒後、実行
+        setTimeout(function () {
+          func();
+        }, 2000);
+      };
+
+      //関数式②
+      const callback = function () {
+        console.log('callbackが実行されました');
+      };
+
+      //何を何してますか？
+      //関数式①を実行
+      //callbackは、関数式②の関数名
+      testFunc(callback);
+    </script>
+    ````
+
+4. アロー関数
+````js
+ <script>
+      //従来の関数式
+      const dog = function () {
+        return 'わんわん';
+      };
+
+      //関数の定義
+      function dog2() {
+        return 'バウバウ';
+      }
+
+      //関数dogを実行 = ()があるから
+      console.log(dog()); //わんわん
+      console.log(dog2()); //バウバウ
+
+      //アロー関数の関数式 *アロー関数は関数式で使う
+      const cat = () => {
+        return 'にゃーにゃー';
+      };
+
+      //鳴き方を決めたい アロー関数 + 引数
+      const animal = (voice) => {
+        return voice;
+      };
+
+      //関数animalの実行
+      //みゃーみゃー
+      console.log(animal('みゃーみゃー'));
+
+      //関数catの実行 = ()があるから
+      console.log(cat()); //にゃーにゃー
+
+      //<p>これ</p>
+
+      //thisは予約後なので、変数名・関数名に使えない
+      const thisElm = document.querySelector('p');
+      console.log(thisElm);
+
+      thisElm.addEventListener('click', (e) => {
+        console.log('クリック');
+        // console.log(this.textContent);
+        console.log(e.target.innerText);
+      });
+    </script>
+`````
+
+## 12 月 7 日
 
 1. 関数に名前をつける
 2. 処理したい内容を関数に入れる
@@ -188,33 +441,33 @@
 
 ## 11 月 16 日
 
-````js
-    //論理和　★または★
-      const n1 = 1;
-      const n2 = 2;
+```js
+//論理和　★または★
+const n1 = 1;
+const n2 = 2;
 
-      if (n1 == 1 || n2 == 2) {
-        console.log(true); //boolean型なので"""はなくてもいい
-      } else {
-        console.log(false);
-      }
+if (n1 == 1 || n2 == 2) {
+  console.log(true); //boolean型なので"""はなくてもいい
+} else {
+  console.log(false);
+}
 
-      //論理積　★かつ★　 trueとfalse
+//論理積　★かつ★　 trueとfalse
 
-      //n2が1のとき
-      if (n1 == 1 && n2 == 1) {
-        console.log(true); //boolean型なので"""はなくてもいい
-      } else {
-        console.log(false);
-      }
+//n2が1のとき
+if (n1 == 1 && n2 == 1) {
+  console.log(true); //boolean型なので"""はなくてもいい
+} else {
+  console.log(false);
+}
 
-      //n2が2のとき 　　　trueとtrue
-      if (n1 == 1 && n2 == 2) {
-        console.log(true); //boolean型なので"""はなくてもいい
-      } else {
-        console.log(false);
-      }
-      ```
+//n2が2のとき 　　　trueとtrue
+if (n1 == 1 && n2 == 2) {
+  console.log(true); //boolean型なので"""はなくてもいい
+} else {
+  console.log(false);
+}
+```
 
 ## 11 月 9 日
 
@@ -257,7 +510,7 @@
         }
       });
     </script>
-````
+```
 
 - if 文で条件分岐する
 
