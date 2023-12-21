@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body {
+  background-color: #5a85bd;
+  padding: 100px 0;
+}
+
+.slide {
+  display: flex;
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.slide img {
+  width: 100%;
+  min-width: 100%; /*100%以上*/
+  transition: all 0.5s ease-in;
+
+  @keyframes {
+  }
+}
+
+.slide img:first-child {
+  margin-left: -100%;
+}
+
+.buttons {
+  margin: 2rem auto 0;
+  width: 790px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.leftBtn {
+  color: #fff;
+  background-color: #0f243f;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.leftBtn:hover {
+  background-color: #fff;
+  color: #0f243f;
+}
+
+.rightBtn {
+  color: #fff;
+  background-color: #0f243f;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.rightBtn:hover {
+  background-color: #fff;
+  color: #0f243f;
+}
