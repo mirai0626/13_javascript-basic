@@ -13,6 +13,68 @@
 9. 関数
 10. 12 月 7 日（木）関数式
 11. 12 月 14 日（木）関数・引数
+12. 1 月 11 日（木）オブジェクト(ドット表記、ブランケット表記)
+
+##　 1 月 11 日
+
+1. オブジェクト
+
+- 名前をつける事ができる
+- 出力したときに、配列のように順番がないから並び順で出力できない
+
+```js
+<script>
+      //オブジェクトの定義
+      let person = {
+        //プロパティ
+        name: '',
+        age: 0,
+        //メソッド
+        information: function () {
+          return '名前:' + this.name + '\n年齢:' + this.age;
+        },
+      };
+      person.name = '山田太郎';
+      person.age = '18';
+
+      console.log(person.name, person.age);
+
+      console.log(person.information());
+
+
+      console.log(myCar_list); //オブジェクトの出力の順番は環境によってぐちゃぐちゃ
+      //{2021: '51年', make: 'Ford', model: 'Mustang', year: 1969}
+</script>
+
+```
+
+2. ドット表記、ブランケット表記
+
+```js
+ <script>
+      const championship = {
+        y2018: '大阪桐蔭',
+        y2019: '履正社',
+        y2020: '中止',
+        y2021: '智弁和歌山',
+        y2022: '仙台育英',
+        y2023: '慶応',
+      };
+
+      const selection = {
+        2018: '大阪桐蔭',
+        2019: '東邦',
+        2020: '中止',
+        2021: '東海大相模',
+        2022: '大阪桐蔭',
+        2023: '山梨学院',
+      };
+
+      console.log(championship.y2023); //ドット表記
+      console.log(championship['y2021']); //ブランケット表記
+      console.log(selection['2023']);
+
+```
 
 ## 12 月 14 日
 
