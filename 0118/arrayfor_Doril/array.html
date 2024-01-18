@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array</title>
+  </head>
+  <body>
+    <ul>
+      <li>りんご</li>
+      <li>みかん</li>
+      <li>パイナップル</li>
+    </ul>
+
+    <ul class="junishis"></ul>
+
+    <script>
+      const animals = ['dog', 'cat', 'bird'];
+      animals[2] = 'lion';
+      console.log(animals);
+
+      //配列の値の変更
+      animals[2] = 'lion';
+      console.log(animals);
+
+      //末尾に要素を追加
+      animals.push('tiger');
+      console.log(animals.length);
+
+      //先頭に要素を追加
+      animals.unshift('elephant');
+      console.log(animals);
+
+      //NodelistやHTMLCOLLectionは、配列の便利なメソッドは使えない
+      const fruits = document.querySelectorAll('li');
+      console.log(fruits); //Nodelist(*配列ぽいもの)
+
+      const junishi = [
+        '丑',
+        '寅',
+        '卯',
+        '辰',
+        '巳',
+        '午',
+        '未',
+        '申',
+        '酉',
+        '戌',
+      ];
+      const twopieces = ['子', '亥'];
+      const junishis = document.querySelector('.junishis');
+
+      //配列junishiに子と亥を追加する
+      junishi.unshift(twopieces[0]);
+      junishi.push(twopieces[1]);
+      console.log(junishi);
+
+      for (eto of junishi) {
+        const list = document.createElement('li');
+        list.innerHTML = eto;
+        junishis.appendChild(list);
+      }
+
+      const staff = [
+        ['佐藤', 41, '東京'],
+        ['鈴木', 25, '大阪'],
+        ['林', 34, '札幌'],
+      ];
+
+      for (let i = 0; i < staff.length; i++) {
+        console.log(staff[i][0]);
+        //全部取りたい
+        //ネスト（入れ子）の場合は、iの次はjを使う
+        for (let j = 0; j < staff[i].length; j++) {
+          console.log(staff[i][j]);
+          //jの次はkを使う
+          //for文のネストは3階層まで。4遺贈になる場合はどこかおかしい。
+        }
+      }
+    </script>
+  </body>
+</html>

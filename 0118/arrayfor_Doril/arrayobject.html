@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>配列の中のオブジェクト</title>
+    <style>
+      .table_gafam {
+        border-collapse: collapse;
+      }
+
+      .table_gafam th,
+      .table_gafam td {
+        border: solid 1px #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>GAFAMの一覧</h1>
+
+    <table class="table_gafam">
+      <tr>
+        <th>名前</th>
+        <th>運営会社</th>
+        <th>創立年</th>
+        <th>URL</th>
+      </tr>
+    </table>
+
+    <script>
+      const corporation = [
+        {
+          name: 'Google',
+          company: 'Alphabet Inc.',
+          founding: 1998,
+          url: 'https://www.abc.xyz/',
+        },
+        {
+          name: 'Apple',
+          company: 'Apple Inc.',
+          founding: 1976,
+          url: 'https://www.apple.com/',
+        },
+        {
+          name: 'Facebook',
+          company: 'Facebook, Inc.',
+          founding: 2004,
+          url: 'https://www.meta.com/',
+        },
+        {
+          name: 'Amazon',
+          company: 'Amazon.com, Inc.',
+          founding: 1994,
+          url: 'https://www.amazon.com',
+        },
+        {
+          name: 'Microsoft',
+          company: 'Microsoft Corporation',
+          founding: 1975,
+          url: 'https://www.microsoft.com/',
+        },
+      ];
+
+      const table_Elm = document.querySelector('.table_gafam');
+
+      for (let co of corporation) {
+        // for(let i=0; i<corporation.length; i++)
+        const trElm = document.createElement('tr');
+        console.log(co);
+
+        for (let key in co) {
+          console.log(co[key]);
+          const tdElm = document.createElement('td');
+          //危険：オブジェクトは順番を指定しない
+          tdElm.innerHTML = co[key];
+          trElm.appendChild(tdElm);
+        }
+        table_Elm.appendChild(trElm);
+      }
+
+      //練習問題4-1 p183
+      const array = [];
+      array.push('1');
+      array.push('2');
+      array.push('3');
+      console.log(array);
+
+      for (let num of array) {
+        console.log(num);
+      }
+    </script>
+  </body>
+</html>

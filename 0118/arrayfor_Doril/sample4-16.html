@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サンプル4-16</title>
+
+    <style>
+      table,
+      tr,
+      th {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>数字を英語で表現する</h1>
+    <table class="table_nam">
+      <tr>
+        <th>数字</th>
+        <th>英語</th>
+      </tr>
+    </table>
+    <script>
+      const fruits = ['りんご', 'もも', 'バナナ'];
+      const ul = document.querySelector('ul');
+
+      for (let name of fruits) {
+        console.log(name); //要素が一つずつ入ってくる。
+      }
+
+      const numbers = ['zero', 'one', 'two', 'three', 'four', 'five'];
+      const table_nam = document.querySelector('.table_nam');
+      const th = document.querySelector('th');
+
+      for (let i = 0; i < numbers.length; i++) {
+        const trElm = document.createElement('tr');
+
+        const tdElm1 = document.createElement('td');
+        tdElm1.innerText = i;
+        console.log(trElm);
+        trElm.appendChild('trElm1');
+
+        const tdElm2 = document.createElement('td');
+        tdElm3.innerText = i;
+        console.log(trElm);
+        trElm.appendChild('trElm2');
+      }
+    </script>
+  </body>
+</html>

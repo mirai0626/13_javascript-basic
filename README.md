@@ -14,6 +14,121 @@
 10. 12 月 7 日（木）関数式
 11. 12 月 14 日（木）関数・引数
 12. 1 月 11 日（木）オブジェクト(ドット表記、ブランケット表記)
+13. 1 月 18 日（木）for..in と for..of
+
+## 1 月 18 日
+
+1. 配列に要素を追加する
+
+```js
+//配列の値の変更
+animals[2] = 'lion';
+console.log(animals);
+
+//末尾に要素を追加
+animals.push('tiger');
+console.log(animals.length);
+
+//先頭に要素を追加
+animals.unshift('elephant');
+console.log(animals);
+```
+
+2. for 文の中に for 文
+
+```js
+for (let i = 0; i < staff.length; i++) {
+  console.log(staff[i][0]);
+  //全部取りたい
+  //ネスト（入れ子）の場合は、iの次はjを使う
+  for (let j = 0; j < staff[i].length; j++) {
+    console.log(staff[i][j]);
+    //jの次はkを使う
+    //for文のネストは3階層まで。4遺贈になる場合はどこかおかしい。
+  }
+}
+```
+
+3. for 文を使って table に追加していく
+
+```html
+<body>
+  <h1>GAFAMの一覧</h1>
+
+  <table class="table_gafam">
+    <tr>
+      <th>名前</th>
+      <th>運営会社</th>
+      <th>創立年</th>
+      <th>URL</th>
+    </tr>
+  </table>
+
+  <script>
+    const corporation = [
+      {
+        name: 'Google',
+        company: 'Alphabet Inc.',
+        founding: 1998,
+        url: 'https://www.abc.xyz/',
+      },
+      {
+        name: 'Apple',
+        company: 'Apple Inc.',
+        founding: 1976,
+        url: 'https://www.apple.com/',
+      },
+      {
+        name: 'Facebook',
+        company: 'Facebook, Inc.',
+        founding: 2004,
+        url: 'https://www.meta.com/',
+      },
+      {
+        name: 'Amazon',
+        company: 'Amazon.com, Inc.',
+        founding: 1994,
+        url: 'https://www.amazon.com',
+      },
+      {
+        name: 'Microsoft',
+        company: 'Microsoft Corporation',
+        founding: 1975,
+        url: 'https://www.microsoft.com/',
+      },
+    ];
+
+    const table_Elm = document.querySelector('.table_gafam');
+
+    for (let co of corporation) {
+      // for(let i=0; i<corporation.length; i++)
+      const trElm = document.createElement('tr');
+      console.log(co);
+
+      for (let key in co) {
+        console.log(co[key]);
+        const tdElm = document.createElement('td');
+        //危険：オブジェクトは順番を指定しない
+        tdElm.innerHTML = co[key];
+        trElm.appendChild(tdElm);
+      }
+      table_Elm.appendChild(trElm);
+    }
+
+    //練習問題4-1 p183
+    const array = [];
+    array.push('1');
+    array.push('2');
+    array.push('3');
+    console.log(array);
+
+    for (let num of array) {
+      //arrayの中にある
+      console.log(num);
+    }
+  </script>
+</body>
+```
 
 ##　 1 月 11 日
 
