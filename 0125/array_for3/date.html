@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const now = new Date();
+      console.log(now); //Sat Dec 18 2021 21:06:07 GMT+0900 (日本標準時)
+
+      const day = ['日', '月', '火', '水', '木', '金', '土'];
+      console.log(now.getDay()); //4
+      console.log(day[now.getDay()]); //木
+
+      const nowDay = new Date();
+      const promotionDay = new Date('2024-2-8'); //進級展の日付オブジェクト
+      console.log(promotionDay - now); //ミリ秒
+      const difference = promotionDay - nowDay; //残り時間
+
+      //ミリ秒→秒に変える
+      const seconds = difference / 1000;
+      console.log(seconds); //秒
+      //秒→分
+      const minites = seconds / 60;
+      console.log(minites); //分
+
+      //分→時間
+      const hours = minites / 60;
+      console.log(hours); //秒
+
+      //時間→日
+      const days = hours / 24;
+      console.log(days); //日
+
+      //ミリ秒→日
+      //const days = difference/(1000*60*60*24);
+    </script>
+  </body>
+</html>

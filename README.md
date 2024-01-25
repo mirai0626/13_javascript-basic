@@ -15,6 +15,61 @@
 11. 12 月 14 日（木）関数・引数
 12. 1 月 11 日（木）オブジェクト(ドット表記、ブランケット表記)
 13. 1 月 18 日（木）for..in と for..of
+14. 1 月 25 日（木）JSON など
+
+##　１月 25 日
+
+1. array_dril3
+
+```js
+//わかる人は、一緒に将棋タイトルも全て表示させてください。
+for (let datas in fujiisota) {
+  if (datas == 'heldTitles')
+    for (let title of fujiisota[datas]) {
+      console.log(title);
+    }
+  else {
+    fujiisota[datas];
+  }
+}
+```
+
+2. JSON
+
+```js
+    <script>
+      const npb2023 = [
+        { Team: '阪神タイガース', Wins: 85, Loss: 53, Ties: 5, Rate: 0.616 },
+        { Team: '広島東洋カープ', Wins: 74, Loss: 65, Ties: 4, Rate: 0.532 },
+        {
+          Team: '横浜DeNAベイスターズ',
+          Wins: 74,
+          Loss: 66,
+          Ties: 3,
+          Rate: 0.529,
+        },
+        { Team: '読売ジャイアンツ', Wins: 71, Loss: 70, Ties: 2, Rate: 0.504 },
+        {
+          Team: '東京ヤクルトスワローズ',
+          Wins: 57,
+          Loss: 83,
+          Ties: 3,
+          Rate: 0.407,
+        },
+        { Team: '中日ドラゴンズ', Wins: 56, Loss: 82, Ties: 5, Rate: 0.406 },
+      ];
+
+      //下記の JSON const npb を for…of 文、for…in 文を使って、すべての要素を console に表示させてください。
+      //配列を処理
+      //[]配列リテラル、{}オブジェクトリテラル,""文字列リテラル
+      for (let team of npb2023) {
+        console.log(team);
+        for (let key in team) {
+          console.log(team[key]);
+        }
+      }
+    </script>
+```
 
 ## 1 月 18 日
 
