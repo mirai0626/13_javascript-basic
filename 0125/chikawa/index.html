@@ -94,7 +94,9 @@
       for (let i = 0; i < chiikawas.length; i++) {
         const dlElm = document.createElement('dl');
 
-        const dtElm = `<dt><span>第${chiikawas[i]['story']}話</span>${chiikawas[i]['titile']}</dt>`;
+        const dtElm = `<dt><span>第${chiikawas[i]['story']}話</span>${chiikawas[i]['title']}</dt>
+        <dd><a href= "https://www.youtube.com/watch?v=${chiikawas[i]['id']}">
+        <img src="./images/${chiikawas[i]['image']}"></a></dd>`; //テンプレートリテラル
 
         dlElm.innerHTML = dtElm;
         contents.appendChild(dlElm);
@@ -103,9 +105,6 @@
           console.log(chiikawas[i][key]);
         }
       }
-    </script>
-    <script>
-      //こちらに記述する
     </script>
   </body>
 </html>
