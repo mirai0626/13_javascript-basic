@@ -17,6 +17,7 @@
     <script>
       const weathers = document.querySelectorAll('.weather li');
       const opinion = document.querySelectorAll('.opinion');
+      const body = document.querySelectorAll('body');
 
       for (let word of weathers) {
         word.addEventListener('click', () => {
@@ -27,7 +28,7 @@
       weathers[0].addEventListener('click', function () {
         console.log('今日は良い天気で、気持ちが良いです。');
         opinion.innerHTML = '今日は良い天気で、気持ちが良いです。';
-        opinion.appendChild(opinion);
+        body.appendChild(opinion);
       });
     </script>
   </body>
