@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const name = '大谷翔平の';
+      const number = '背番号は';
+      const num = '20';
+      const two = 2;
+      const seven = 7;
+      const ending = 'です。';
+
+      //大谷翔平の背番号は17です。
+      const ohtaniText = document.createElement('p');
+      const body = document.querySelector('body');
+      ohtaniText.innerHTML = name + number + (num - 10 + seven) + ending;
+      body.appendChild(ohtaniText);
+    </script>
+  </body>
+</html>

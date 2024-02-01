@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="weather">
+      <li>晴れ</li>
+      <li>曇り</li>
+      <li>雨</li>
+      <li>雪</li>
+    </ul>
+    <p class="opinion"></p>
+
+    <script>
+      const weathers = document.querySelectorAll('.weather li');
+      const opinion = document.querySelectorAll('.opinion');
+
+      for (let word of weathers) {
+        word.addEventListener('click', () => {
+          say(word.textContent);
+        });
+      }
+      console.log(weathers[0]);
+      weathers[0].addEventListener('click', function () {
+        console.log('今日は良い天気で、気持ちが良いです。');
+        opinion.innerHTML = '今日は良い天気で、気持ちが良いです。';
+        opinion.appendChild(opinion);
+      });
+    </script>
+  </body>
+</html>

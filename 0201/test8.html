@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="list">
+      <li>バナナ</li>
+      <li>りんご</li>
+      <li>みかん</li>
+      <li>パイナップル</li>
+    </ul>
+    <button class="resultBtn">結果を表示</button>
+    <ul class="result"></ul>
+
+    <script>
+      const fruitsArray = ['キウイ', 'パパイヤ', 'マンゴー'];
+      const btn = document.querySelector('.resultBtn');
+      const result = document.querySelector('.result');
+
+      btn.addEventListener('click', function () {
+        for (let i = 0; i < fruitsArray.length; i++) {
+          const liElm = document.createElement('li');
+          liElm.innerHTML = fruitsArray[i];
+          result.appendChild(liElm);
+        }
+      });
+    </script>
+  </body>
+</html>

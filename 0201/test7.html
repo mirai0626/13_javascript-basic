@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .tabcontent.show {
+        display: block;
+      }
+
+      .tabcontent {
+        display: none;
+      }
+    </style>
+
+    <div class="tab">
+      <button class="tablinks">Tab1</button>
+      <button class="tablinks">Tab2</button>
+      <button class="tablinks">Tab3</button>
+    </div>
+
+    <div class="tabcontent show">
+      <h3>Tab1</h3>
+      <p>タブ1のコンテンツです。</p>
+    </div>
+    <div class="tabcontent">
+      <h3>Tab2</h3>
+      <p>タブ2のコンテンツです。</p>
+    </div>
+    <div class="tabcontent">
+      <h3>Tab3</h3>
+      <p>タブ3のコンテンツです。</p>
+    </div>
+
+    <script>
+      const btn = document.querySelectorAll('button');
+      const tab = document.querySelectorAll('.tablinks');
+      const tabContent = document.querySelectorAll('.tabcontent');
+
+      console.log(btn[0]);
+      btn[0].addEventListener('click', function () {
+        tabContent[0].classList.add('show');
+        tabContent[1].classList.remove('show');
+        tabContent[2].classList.remove('show');
+      });
+
+      console.log(btn[1]);
+      btn[1].addEventListener('click', function () {
+        tabContent[0].classList.remove('show');
+        tabContent[1].classList.add('show');
+        tabContent[2].classList.remove('show');
+      });
+
+      console.log(btn[2]);
+      btn[2].addEventListener('click', function () {
+        tabContent[0].classList.remove('show');
+        tabContent[1].classList.remove('show');
+        tabContent[2].classList.add('show');
+      });
+    </script>
+  </body>
+</html>
